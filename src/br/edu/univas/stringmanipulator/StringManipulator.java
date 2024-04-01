@@ -4,45 +4,48 @@ import java.util.Arrays;
 
 public class StringManipulator {
 
-    public int getNumeroVogais(String str) {
-        int count = 0;
-        str = str.toLowerCase();
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
-                count++;
+    public int getNumeroVogais(String string) {
+        int contaVogais = 0;
+        string = string.toLowerCase();
+
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                contaVogais++;
             }
         }
-        return count;
+
+        return contaVogais;
     }
 
-    public int getNumeroConsoantes(String str) {
-        int count = 0;
-        str = str.toLowerCase();
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            if ((ch >= 'a' && ch <= 'z') && !(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')) {
-                count++;
+    public int getNumeroConsoantes(String string) {
+        int contaConsoantes = 0;
+        string = string.toLowerCase();
+
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            if (c >= 'a' && c <= 'z' && c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u') {
+                contaConsoantes++;
             }
         }
-        return count;
+
+        return contaConsoantes;
     }
 
     public boolean getIsAnagrama(String str1, String str2) {
-        str1 = str1.replaceAll("\\s", "");
-        str2 = str2.replaceAll("\\s", "");
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
 
         if (str1.length() != str2.length()) {
             return false;
         }
 
-        char[] arr1 = str1.toCharArray();
-        char[] arr2 = str2.toCharArray();
+        char[] str1Array = str1.toCharArray();
+        char[] str2Array = str2.toCharArray();
 
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
+        Arrays.sort(str1Array);
+        Arrays.sort(str2Array);
 
-        return Arrays.equals(arr1, arr2);
+        return Arrays.equals(str1Array, str2Array);
     }
 }
-
