@@ -8,6 +8,8 @@ import org.junit.Test;
 
 public class StringManipulatorTest {
 	
+	//Use replace for exercise
+	
 	@Test
     public void calcularNumeroVogaisConsoantes1() {
 		StringManipulator stringManipulator = new StringManipulator();
